@@ -21,7 +21,6 @@ route.post('/', async (req, res) => {
     
 });
 
-
 // READ ALL OR SPECIFIC FROM BODY
 route.get('/', async (req, res) => {
 
@@ -39,7 +38,6 @@ route.get('/', async (req, res) => {
     
 });
 
-
 // UPDATE SPECIFIC FROM URL ID
 route.put('/:id', async (req, res) => {
     // REQ -> DADOS DA REQUISIÇÃO
@@ -54,7 +52,6 @@ route.put('/:id', async (req, res) => {
     }
 
 });
-
 
 // DELETE SPECIFIC FROM URL ID
 route.delete('/:id', async (req, res) => {

@@ -24,7 +24,6 @@ route.post('/', async (req, res) => {
     
 });
 
-
 // READ ALL OR SPECIFIC FROM BODY
 route.get('/', async (req, res) => {
 
@@ -74,7 +73,6 @@ route.put('/:id', async (req, res) => {
     }
 
 });
-
 
 // DELETE SPECIFIC FROM URL ID
 route.delete('/:id', async (req, res) => {
