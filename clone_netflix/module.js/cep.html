@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qual o endereço?</title>
+</head>
+<body>
+    <input type="text" id="cep" placeholder="Digite seu CEP">
+    <button id="buscarCep">Buscar CEP</button>
+
+    <pre id="debug">
+
+    </pre>
+
+
+    <script type="text/javascript">
+    
+    document.getElementById('buscarCep').addEventListener('click', () => {
+        const cep = document.getElementById('cep').value;
+
+        fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then((res) => res.json())
+        .then((data) => {
+            document.getElementById('debug').innerHTML = JSON.stringify(data);
+            console.log(data.uf)
+            fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${data.uf}/distritos`)
+            .then((res) => res.json().then((data) => console.log(data)));
+        })
+    })
+    
+    
+    </script>
+</html>
