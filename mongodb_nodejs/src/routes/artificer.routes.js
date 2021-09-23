@@ -5,16 +5,16 @@ const Artificer = require('../models/artificer');
 const Weapon = require('../models/weapon');
 
 
-// CREATE
+// CREATE ONE
 route.post('/', async (req, res) => {
 
     // REQ -> DADOS DA REQUISIÇÃO
     // RES -> OBJETO COM FUNÇÕES E DADOS DA RESPOSTA
     try {
 
-        //const artificer = await new Artificer(req.body).save();
+        const artificer = await new Artificer(req.body).save();
 
-        const arti = await Artificer.insertMany(req.body);
+        //const arti = await Artificer.insertMany(req.body);
 
         res.json({ error: false, arti });
 
@@ -33,10 +33,10 @@ route.get('/', async (req, res) => {
 
         const artificers = await Artificer.find(req.body.filters);
 
-        res.json({error: false, artificers});
+        res.status(200).json({error: false, artificers});
 
     } catch (err) {
-        res.json({ error: true, message: err.message })
+        res.status(400).json({ error: true, message: err.message })
     }
     
 });

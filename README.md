@@ -1,8 +1,7 @@
-# Estudos gerais de Back-end
+# Assuntos estudados
 
+- HTML / CSS / Bootstrap
 - MongoDB / Mongoose
 - JavaScript
 - NodeJs
 
-
-  
