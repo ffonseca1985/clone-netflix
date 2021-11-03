@@ -1,217 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./style.css">
-    <title>Clone Netflix</title>
 
-
+    <title>Login</title>
 </head>
-<body>
-    <h1>Catalogo</h1>
-<!--
-    <button id="meu_botao">Clique</button>
-
-    <button onclick="alert('Codigo direto')">Clique</button>
-
-    <br>
-
-    <input id="meu_input" type="text" placeholder="E-mail">
-
-    <select>
-
-        <option value="1">Opção 1</option>
-        <option value="2">Opção 2</option>
-
-    </select>
--->
-
+<body class="bg_filmes">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-4">
-                <input type="color" id="bg_color">
+        <header class="row">
+            <img class="logo" src="./assets/netflix-logo.png" alt="Netflix Logo">
+        </header>
+        <div id="caixa_login" class="col-4 offset-4">
+            <h1 class="text-white">Entrar</h1>
+            <br>
+            <form action="">
+                <input
+                    type="email"
+                    class="form-control form-control-lg"
+                    placeholder="Email ou número de telefone"
+                    />
                 <br>
-                <input id="troca_imagem" type="text" placeholder="url">
+                <input 
+                    type="password"
+                    class="form-control form-control-lg"
+                    placeholder="Senha">
                 <br>
-                <select id="serie_select">
-                    
-                </select>
-            </div>
-            <div class="col-8">
-                <img class="img-fluid" id="imagem" src="https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/12/netflix-logo.png" alt="Netflix Logo">
-                <h1 id="titulo">Titulo serie</h1>
-            </div>
+                <div class="d-grid gap-2 ">
+                    <button class="btn btn-lg btn-danger">Entrar</button>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col text-muted">
+                        <input type="checkbox"> Lembrar de mim.
+                    </div>
+                    <div class="col">
+                        <a href="#" class="text-muted text-right">Precisa de ajuda?</a>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <a href="#" class="text-left text-muted">Novo por aqui? <strong>Assine agora!</strong></a>
+                </div>
+                
+            </form>
         </div>
     </div>
-
+    
 </body>
-    <script type='text/javascript'>
-    
-    // DOM
-    const input_image = document.getElementById('troca_imagem');
-    const imagem = document.getElementById('imagem');
-
-
-    input_image.addEventListener('keyup', () => {
-        if (input_image.value){
-            imagem.src = input_image.value;
-        }
-        else{
-            imagem.src = "https://observatoriodocinema.uol.com.br/wp-content/uploads/2020/12/netflix-logo.png"
-        }
-        
-    })
-
-    const bg_color = document.getElementById('bg_color');
-    bg_color.addEventListener('change', () => {
-        document.querySelector('body').style.backgroundColor = bg_color.value;
-    });
-
-    let series = [
-        {
-            nome: 'Sweet Tooth',
-            img: 'https://files.nsctotal.com.br/s3fs-public/graphql-upload-files/lancamentos%20netflix%20junho%202021%20sweet%20tooth_1.jpg?DNCwI4o7VgI.f1P.LcDY3ijkADesYuuc' 
-        },
-        {
-            nome: 'La Casa de Papel',
-            img: 'https://s2.glbimg.com/oGsdIjfL0PBVrdpauJnvf94pXVk=/0x0:1920x1080/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2019/4/m/K0jkARR6uhmQ8CGeBaiA/casa-papel.jpg' 
-        },
-        {
-            nome: 'Titans',
-            img: 'https://guiadanetflix.com.br/wp-content/uploads/2020/01/lancamentos-netflix-06-a-12-de-janeiro-1024x577.jpg' 
-        },
-        {
-            nome: 'Lupin',
-            img: 'https://musicnonstop.uol.com.br/wp-content/uploads/2021/06/Lupin-S2.jpg'
-        }
-    ]
-    
-    const input_serie = document.querySelector('#serie_select');
-
-    for (let idx = 0; idx < series.length; idx++){
-        let new_serie_option = document.createElement("option");
-
-        new_serie_option.value = idx;
-        new_serie_option.innerText = series[idx].nome;
-
-        input_serie.appendChild(new_serie_option);
-    }
-
-    input_serie.addEventListener('change', () => {
-        document.getElementById('titulo').innerHTML = `<text style="color: #f00"> ${series[event.target.value].nome}</text>`;
-        imagem.src = series[event.target.value].img;
-    })
-
-    /* // EVENTOS
-
-    document.getElementById('meu_botao').addEventListener('click', () => {
-        clicou();
-    });
-
-    document.getElementById('meu_input').addEventListener('keyup', (event) => {
-        printConsole(event);
-    })
-
-    document.getElementsByTagName('select')[0].addEventListener('change', (event) => {
-        printConsole(event);
-    })
-
-    const clicou = () => {
-        alert('clicou');
-    }
-
-    const printConsole = (event) => {
-        console.log(event.target.value)
-    }
-
-    */
-    
-    /* // Intro
-        alert('Hello World');
-        console.log('Ola console');
-        console.error('Error');
-        console.warn('Warn');
-        console.info('Info');
-    */
-
-    /* // Variaveis
-
-        const director = 'Tarantino'; // Imutavel
-
-        var movie = 'Os oito odiados'; // Globais
-
-        let filme = // De escopo
-        {
-            'nome': 'Meu Malvado Favorito',
-            'ano': 2010,
-            'premiacoes':[
-                {
-                    'nome': 'Oscar',
-                    'ano': 2010
-                },
-                {
-                    'nome': 'Kikito',
-                    'ano': 2011
-                }
-            ]
-        };
-
-        console.log(filme);
-    */
-    
-    /* // Operações básicas
-        let teste = 5;
-
-        let novo = (teste += 5); // Atribuição Multipla
-
-        console.log(teste);
-        console.log(novo);
-    */
-
-    /* // Comparadores
-        let number = 5;
-        let text = '5';
-
-        console.log(number == text); // Valor
-        console.log(number === text); // Valor e tipo
-    */
-    
-    /* // Functions
-        
-        const getFilme = (index) => { // Arrow function
-            return `${filmes[index].titulo} - ${filmes[index].ano}`
-        }
-        
-
-        const filmes =[
-            {titulo: "filme 1", ano: 2020},
-            {titulo: "filme 2", ano: 2021},
-            {titulo: "filme 3", ano: 2022}
-        ]
-
-        function getFilme(index){
-            return `${filmes[index].titulo} - ${filmes[index].ano}`
-        }
-    */
-
-    /* // Loops
-        for (let indice = 0; indice < filmes.length; indice++){
-
-            console.log(getFilme(indice));
-        }
-        
-        
-        console.log(getFilme(1));
-        
-
-        filmes.map((filme, indice) => {
-            console.log(getFilme(indice))
-        });
-    */
-
-    </script>
 </html>
